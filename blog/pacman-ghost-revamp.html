@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👻 PacMan Ghost Pathfinding Revamp</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/header.js"></script>
+</head>
+
+<body>
+
+    <header-component></header-component>
+
+    <h2>👻 PacMan Ghost Pathfinding Revamp</h2>
+    <p>Out of the blue, I decided I wanted to implement the pathfinding algorithm of the ghosts in PacMan. It's actually pretty simple, I'm sure you can find loads of videos online describing the pathfinding in detail as well as the funky issues it has (e.g. the buffer overflow).</p>
+
+    <img src="/imgs/pacman.jpg" alt="Pacman game" width="400">
+
+    <h2>The issue? Dead-ends.</h2>
+    <p>After playing around with it, I found out it couldn't handle dead-ends at all. <em>Like at all.</em></p>
+    <p>This is due to the ghosts being unable to move backwards and thus when moving down a closed path, it can only move forwards. And if it hits a dead-end... well it can't move backwards so it's stuck there.</p>
+    <p>This is not an issue in the PacMan game because there are no dead-ends in the maze. You can look at the image if you want to check for yourself.</p>
+    <p>If you want to see the effect for yourself, check out the <a>dead-end-demo.py</a> in the <a href="/blog/pacman-ghost-revamp.html">Github repository</a>.</p>
+
+</body>
+
+</html>
