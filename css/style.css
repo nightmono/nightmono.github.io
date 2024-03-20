@@ -7,19 +7,19 @@
 }
 
 .grn {
-    color: var(--gre)
+    color: var(--gre);
 }
 
 .grn::selection {
-    background-color: var(--gre)
+    background-color: var(--gre);
 }
 
 .blu {
-    color: var(--blu)
+    color: var(--blu);
 }
 
 .blu::selection {
-    background-color: var(--blu)
+    background-color: var(--blu);
 }
 
 ::selection {
@@ -50,7 +50,7 @@ body {
     color: var(--fg);
     margin: 0 auto;
     max-width: 80ch;
-    font-family: monospace;
+    font-family: "JetBrains Mono", 'Courier New', Courier, monospace;
     padding: 0 2rem 2rem;
     line-height: 1.5;
     animation: fadeIn .75s;
@@ -132,6 +132,11 @@ ol {
 
 li::marker {
     color: var(--fg1);
+}
+
+@font-face {
+    font-family: JetBrains Mono;
+    src: url("/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
 }
 
 /* Media query to stop padding growing hover effect on viewports <= to 320px */
