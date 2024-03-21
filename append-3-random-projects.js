@@ -1,5 +1,5 @@
 async function fetchRandomProjects() {
-    fetch('favourite-projects.txt')
+    fetch('/favourite-projects.txt')
         .then(response => response.text())
         .then(text => {
             const lines = text.split('\n').filter(line => line.trim() !== '');
