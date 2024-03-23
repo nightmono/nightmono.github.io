@@ -4,4 +4,4 @@
 /blog/pacman-ghost-revamp | 📝 XP Task Log 
 /blog/pacman-ghost-revamp | This Website
 /blog/pacman-ghost-revamp | Reverse Polish Notation Language
-/blog/pacman-ghost-revamp | micro:bit BitBot
+/blog/microbit-bitbot | micro:bit BitBot
