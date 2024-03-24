@@ -14,10 +14,21 @@ In this blog, we explore building a (ultrasonic) radar system using a micro:bit 
 
 In this blog, we explore building a (ultrasonic) radar system using a micro:bit and motorized BitBot XL robot. As well as some possible improvements, 'What next?'s, and how you can try programming a micro:bit for yourself, for free!" />
     <meta property="og:image" content="/assets/bitbot-xl.webp" />
-    <meta name="twitter:card" content="summary_large_image">
     <title>micro:bit BitBot</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        #emma {
+            color: #9C5BC7;
+        }
+        #emma:hover {
+            color: var(--bg);
+            background-color: #9C5BC7;
+        }
+        #emma::selection {
+            background-color: #9C5BC7;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,7 +48,7 @@ In this blog, we explore building a (ultrasonic) radar system using a micro:bit 
 
     <p>To practice using micro:bits, I made some simple programs and games utilizing the matrix display, including a gravity simulation and Space Invaders! Below is a video demo of the latter.</p>
 
-    <video controls loop>
+    <video controls>
         <source src="/assets/microbit-space-invaders.mp4" type="video/mp4">
         Your browser does not support video.
     </video>
@@ -45,31 +56,60 @@ In this blog, we explore building a (ultrasonic) radar system using a micro:bit 
         <p><small>Space Invaders, without any audio. I could add that in the future.</small></p>
     </div>
 
-    <p>The micro:bits can be programmed using Python, JavaScript and a block-based programming language. You can try programming a micro:bit for yourself using the <a href="https://makecode.microbit.org/">online editor</a>, which has a micro:bit simulator, so you don't even need to purchase one.</p>
+    <p>The micro:bits can be programmed using Python, JavaScript, and a block-based programming language. You can try programming a micro:bit for yourself using the <a href="https://makecode.microbit.org/">online editor</a>, which has a micro:bit simulator, so you don't even need to purchase one.</p>
 
     <img src="/assets/makecode-mircobit-editor.webp" alt="Screenshot of the micro:bit code editor">
     <div class="center-text">
         <p><small>What the micro:bit code editor looks like.</small></p>
     </div>
 
-    <p>Additionally, I had access to a <a href="https://4tronix.co.uk/blog/?p=2289">BitBot XL</a> to play around with. The BitBot is a robot that you can attach a micro:bit onto and control using the connector on the BitBot. The BitBot has a ton of features that I won't be listing here, so if you're interested, <a href="https://4tronix.co.uk/blog/?p=2289">click here</a> to learn more.</p>
+    <code>def on_button_pressed_a():
+    basic.show_icon(IconNames.HAPPY)
+    basic.pause(1000)
+    bruh_face()
+input.on_button_pressed(Button.A, on_button_pressed_a)
+
+def on_button_pressed_b():
+    basic.show_icon(IconNames.SAD)
+    basic.pause(1000)
+    bruh_face()
+input.on_button_pressed(Button.B, on_button_pressed_b)
+
+def bruh_face():
+    basic.show_icon(IconNames.ASLEEP)
+bruh_face()</code>
+    <div class="center-text">
+        <p><small>Python code for a simple micro:bit program that shows -_- by default, :) on button press A, and :( on button press B.</small></p>
+    </div>
+
+    <p>Additionally, I had access to a <a href="https://4tronix.co.uk/blog/?p=2289">BitBot XL</a> to play around with. The BitBot is a robot that you can attach a micro:bit onto and control via the connector on the BitBot. The BitBot has a ton of features that I won't be listing here, so if you're interested, <a href="https://4tronix.co.uk/blog/?p=2289">click here</a> to learn more.</p>
 
     <img src="/assets/bitbot-xl.webp" alt="Picture of a BitBot XL">
     <div class="center-text">
-        <p><small>Image of the BitBot XL. In the blog, BitBot refers to the XL version.</small></p>
+        <p><small>Image of the BitBot XL. In this blog, BitBot refers to the XL version.</small></p>
     </div>
 
-    <p>With both the micro:bit and BitBot, the number of inputs and outputs I could play around with increased significantly. Now what I was interested were the motors and the ultrasonic sensor.</p>
+    <p>With both the micro:bit and BitBot, the number of inputs and outputs I could play around with increased significantly. What I was interested in were the motors and the ultrasonic sensor.</p>
 
-    <p>At first, I played around with making the motors spin and detecting distances using the ultrasonic sensor. Once I was familiar with it, I programmed the BitBot to drive in a straight line and turn when it detected something in front of it. Pretty neat, but what if we wanted to control it?</p>
+    <p>At first, I played around with making the motors spin and detecting distances using the ultrasonic sensor. Once I was familiar with it, I programmed the BitBot to drive in a straight line and turn when it detected something in front of it. This in itself was neat, but what if we wanted a way to control it?</p>
+
+    <code>def on_forever():
+    bitbot.go(BBDirection.FORWARD, 50)
+    if bitbot.sonar(BBPingUnit.CENTIMETERS) <= 10:
+        bitbot.stop(BBStopMode.BRAKE)
+        bitbot.rotatems(BBRobotDirection.LEFT, 50, 500)
+basic.forever(on_forever)</code>
+    <div class="center-text">
+        <p><small>Python code for a simple micro:bit program drives forward and turns left if there is something within 10cm in front of it.</small></p>
+    </div>
 
     <h2>Making use of Bluetooth LE</h2>
 
     <p>As previously mentioned, the micro:bit has Bluetooth LE capabilities, which allows it to communicate with other micro:bits. Now this is huge as one could build a network of micro:bits for more complex use cases, such as remote controlling!</p>
 
-    <p>Now with the BitBot, controlling it directly using the buttons on micro:bit attached to it would be quite difficult, as you would have to move with the BitBot in sync, as well as <em>boring</em>. At that point, you might as well as move the BitBot yourself...</p>
+    <p>Controlling the BitBot using the buttons on the micro:bit attached to it would be quite difficult, as you would have to move with the BitBot in sync, as well as <em>boring</em>. At that point, you might as well as move the BitBot yourself...</p>
 
-    <p>This is where Bluetooth <small>(Bluetooth as in Bluetooth LE)</small> comes in. We can use another micro:bit that we will hold to communicate with the micro:bit on the BitBot and tell it where to move. Well, specifically how it should move. As cool as a system where one could enter in coordinates for the BitBot would move to would be, 2 buttons are simply far too few inputs for the user experience to be even somewhat bearable.</p>
+    <p>This is where Bluetooth <small>(Bluetooth as in Bluetooth LE)</small> comes in. We can use another micro:bit that we will hold to communicate with the micro:bit on the BitBot and tell it where to move. Well, specifically how it should move. As cool as a system where one could enter in coordinates for the BitBot to move to would be, 2 buttons are simply far too few inputs for the user experience to be even somewhat bearable.</p>
 
     <p>I'm pretty sure I lost the code <small>(:P)</small> but the first version of this remote control BitBot system used the left and right buttons as turning left and right and pushing both buttons at the same time as moving forward. The second version had the BitBot constantly move forward with the pushing of both buttons toggling its forward movement.</p>
 
@@ -79,7 +119,7 @@ In this blog, we explore building a (ultrasonic) radar system using a micro:bit 
 
     <p>Yep. I wanted to make a radar system using the BitBot. And it could 100% facilitate one: it has an ultrasonic sensor that could measure distances, as well as motors that can turn said sensor. Below is the system in action! I'm quite proud of it.</p>
 
-    <video controls loop>
+    <video controls>
         <source src="/assets/bitbot-radar.mp4" type="video/mp4">
         Your browser does not support video.
     </video>
@@ -91,17 +131,17 @@ In this blog, we explore building a (ultrasonic) radar system using a micro:bit 
 
     <p>After spinning a full 360 degrees, it would loop through the array and light up the LED in the correct direction on the LED matrix if the value at the current index was 1.</p>
     
-    <p>How does it know which index was which direction? I hard-coded it. It was more convenient that way. <small><em>*Shrug*</em></small></p>
+    <p>How does it know which index was which direction? I hard-coded it. It was more convenient that way. <em><small>*Shrug*</small></em></p>
 
     <h2>Making it wireless</h2>
 
-    <p>The next step after making the radar work was to obviously make it wireless and send its result to another micro:bit.</p>
+    <p>The next step I took after making the radar work was to make it wireless and send its result to another micro:bit.</p>
     
     <p>In theory, this should be quite easy. All I have to do is just send the result from the radar micro:bit to the remote micro:bit.</p>
 
     <p>But in practice this was much harder than expected. Sometimes the wrong LED would light up or LEDs wouldn't light up at all.</p>
     
-    <p>At the time, I thought maybe it was a limitation with the Bluetooth inside the micro:bit, so I added delay between each lighting of the LEDs so hopefully each LED had enough time to light up on the receiver. Nope. Still the same issue.</p>
+    <p>At the time, I thought maybe it was a limitation with the Bluetooth inside the micro:bit, so I added a delay after every sent message between the micro:bits so that the receiver had enough time to light up the LED on its end and handle everything. Nope. Still the same issue.</p>
 
     <p>So after a while, I gave up. If I can ever find the code for it, I'll update this blog. Perhaps it was an issue with my code? I wouldn't be surprised.</p>
 
@@ -109,16 +149,17 @@ In this blog, we explore building a (ultrasonic) radar system using a micro:bit 
 
     <p>The micro:bit and BitBot has tons more functionality and potential I haven't played around with, such as line following sensors, a wide array of front FireLEDs on the BitBot itself <small>(check the image for reference)</small>, and a pen holder.</p>
     
-    <p>Someone else was playing around with the line following sensor at the time and got pretty far in terms of progress. It could follow straight and slightly curvy lines and make subtle turns to stay on track. However, the BitBot could not handle sharp turns, probably due to the subtle adjustments the BitBot makes to stay on track moving it off course too much.</p>
+    <p>Someone else was playing around with the line following sensor at the time and got pretty far in terms of progress. It could follow straight and slightly curved lines and make subtle turns to stay on track. However, the BitBot could not handle sharp turns, probably due to the subtle adjustments the BitBot makes to stay on track moving it off course too much.</p>
 
-    <p>Others were working on move complex BitBot driving algorithms.</p>
+    <p>Others were working on more complex BitBot driving algorithms.</p>
 
-    <p>The micro:bit website has tons of <a href="https://microbit.org/projects/make-it-code-it/">projects (with tutorials)</a> that you can follow. Plus, you can play around with micro:bit simulator on the <a href="https://makecode.microbit.org/">micro:bit editor</a>, so you don't need to buy anything.</p>
+    <p>The micro:bit website has tons of <a href="https://microbit.org/projects/make-it-code-it/">projects (with tutorials)</a> that you can follow. Plus, you can play around with the micro:bit simulator on the <a href="https://makecode.microbit.org/">micro:bit editor</a>, so you don't need to buy anything.</p>
 
     <h2>Credits</h2>
     <ul>
         <li><a>My teacher</a> for giving me the opportunity to tinker and play around with such cool pieces of tech</li>
-        <li><a>You</a> for reading my first blog, thank you!<br>If you want to go the extra mile, please feel free to leave feedback and comments as an issue on the <a href="https://github.com/nightmono/nightmono.github.io/issues">GitHub repo</a>.</li>
+        <li><a id="emma">Emma</a> for proof-reading, I really appreciate it!</li>
+        <li><a>You</a> for reading my first blog, thank you!<br>If you want to leave feedback or comments, open an issue on the <a href="https://github.com/nightmono/nightmono.github.io/issues">GitHub repo</a> and I'll add it here!</li>
     </ul>
 
 </body>

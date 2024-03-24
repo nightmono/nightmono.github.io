@@ -110,6 +110,7 @@ img,video {
 a {
     text-decoration: none;
     font-weight: bold;
+    white-space: nowrap;
     color: var(--gre);
     transition: padding .25s, color .25s, background-color .25s;
 }
@@ -147,7 +148,7 @@ code {
     background-color: var(--bg2);
     max-width: 100%;
     white-space: pre;
-    margin-right: 1ch;
+    margin: 0 1ch 1.5rem 0;
     padding: .5rem 1ch;
     box-shadow: .5rem 1ch var(--bla);
     overflow-x: auto;
