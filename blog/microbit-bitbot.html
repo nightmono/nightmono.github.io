@@ -9,7 +9,7 @@
     <meta name="og:type" content="website"/>
     <meta property="og:title" content="micro:bit BitBot" />
     <meta property="og:description" content="Playing around with a pretty cool piece of hardware kit." />
-    <meta property="og:image" content="https://4tronix.co.uk/blog/wp-content/uploads/2020/02/BBOTXL_Shop2.jpg" />
+    <meta property="og:image" content="/assets/bitbot-xl.webp" />
     <meta name="twitter:card" content="summary_large_image">
     <title>micro:bit BitBot</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -31,7 +31,7 @@
 
     <h2>micro:bit BitBot</h2>
 
-    <p>Some time ago, I had the pleasure of playing around with a <a href="https://microbit.org/">micro:bit</a>. These tiny open-source ARM-based embedded systems have 25 LEDs in a 5x5 matrix, Bluetooth LE capabilities, 2 programmable buttons, and many more <a href="https://microbit.org/get-started/features/overview/">features</a> <small>(I used the new version.)</small></p>
+    <p>Some time ago, I had the pleasure of playing around with a <a href="https://microbit.org/">micro:bit</a>. These tiny open-source ARM-based embedded systems have 25 LEDs in a 5x5 matrix, Bluetooth LE capabilities, 2 programmable buttons, and many more <a href="https://microbit.org/get-started/features/overview/">features</a> <small>(I used the new version)</small>.</p>
 
     <p>To practice using micro:bits, I made some simple programs and games utilizing the matrix display, including a gravity simulation and Space Invaders! Below is a video demo of the latter.</p>
 
@@ -45,9 +45,9 @@
 
     <p>Additionally, I had access to a <a href="https://4tronix.co.uk/blog/?p=2289">BitBot XL</a> to play around with. The BitBot is a robot that you can attach a micro:bit onto and control using the connector on the BitBot. The BitBot has a ton of features that I won't be listing here, so if you're interested, <a href="https://4tronix.co.uk/blog/?p=2289">click here</a> to learn more.</p>
 
-    <img src="https://4tronix.co.uk/blog/wp-content/uploads/2020/02/BBOTXL_Shop2.jpg" alt="Picture of a BitBot XL">
+    <img src="/assets/bitbot-xl.webp" alt="Picture of a BitBot XL">
     <div class="center-text">
-        <p><small>Image of the BitBot XL. In the blog, BitBot refers to XL version.</small></p>
+        <p><small>Image of the BitBot XL. In the blog, BitBot refers to the XL version.</small></p>
     </div>
 
     <p>With both the micro:bit and BitBot, the number of inputs and outputs I could play around with increased significantly. Now what I was interested were the motors and the ultrasonic sensor.</p>
@@ -66,7 +66,7 @@
 
     <p>After I had my fun with that, I moved onto something else a little more interesting...</p>
 
-    <h2>BitBot ultrasonic radar...?</h2>
+    <h2>Making a ultrasonic radar</h2>
 
     <p>Yep. I wanted to make a radar system using the BitBot. And it could 100% facilitate one: it has an ultrasonic sensor that could measure distances, as well as motors that can turn said sensor. Below is the system in action! I'm quite proud of it.</p>
 
@@ -80,8 +80,9 @@
 
     <p>The programming behind it is quite simple and very beginner. The mirco:bit would initialize an array which would store if there was a detected object. Then the BitBot would spin 45 degrees, detect if anything was close using the ultrasonic sensor, and append 1 or 0 to the array if there was or wasn't.</p>
 
-    <p>After spinning a full 360 degrees, it would loop through the array and light up the LED in the correct direction on the LED matrix if the value at the current index was 1. How does it know which index was which direction? I hard-coded it. It was more convenient that way. <small><em>*Shrug*</em></small></p>
+    <p>After spinning a full 360 degrees, it would loop through the array and light up the LED in the correct direction on the LED matrix if the value at the current index was 1.</p>
     
+    <p>How does it know which index was which direction? I hard-coded it. It was more convenient that way. <small><em>*Shrug*</em></small></p>
 
 </body>
 
