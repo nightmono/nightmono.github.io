@@ -9,7 +9,7 @@
     <meta name="og:type" content="website"/>
     <meta property="og:title" content="micro:bit BitBot" />
     <meta property="og:description" content="Playing around with a pretty cool piece of hardware kit." />
-    <meta property="og:video" content="/assets/bitbot-radar.mp4" />
+    <meta property="og:image" content="https://4tronix.co.uk/blog/wp-content/uploads/2020/02/BBOTXL_Shop2.jpg" />
     <meta name="twitter:card" content="summary_large_image">
     <title>micro:bit BitBot</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -36,30 +36,31 @@
     <p>To practice using micro:bits, I made some simple programs and games utilizing the matrix display, including a gravity simulation and Space Invaders! Below is a video demo of the latter.</p>
 
     <video controls loop>
-        <source src="/assets/microbit-space-invaders.webm" type="video/webm">
+        <source src="/assets/microbit-space-invaders.mp4" type="video/mp4">
+        Your browser does not support video.
     </video>
     <div class="center-text">
-        <p><small>Space Invaders, without an audio. I could add that in the future.</small></p>
+        <p><small>Space Invaders, without any audio. I could add that in the future.</small></p>
     </div>
 
-    <p>Additionally, I had access to a <a href="https://4tronix.co.uk/blog/?p=2289">BitBot XL</a> to play around with. The BitBot is a robot that you can attach a micro:bit onto and control using pins found on both pieces of tech. The BitBot has a ton of features that I won't be listing here, so if you're interested, <a href="https://4tronix.co.uk/blog/?p=2289">click here</a> to learn more.</p>
+    <p>Additionally, I had access to a <a href="https://4tronix.co.uk/blog/?p=2289">BitBot XL</a> to play around with. The BitBot is a robot that you can attach a micro:bit onto and control using the connector on the BitBot. The BitBot has a ton of features that I won't be listing here, so if you're interested, <a href="https://4tronix.co.uk/blog/?p=2289">click here</a> to learn more.</p>
 
     <img src="https://4tronix.co.uk/blog/wp-content/uploads/2020/02/BBOTXL_Shop2.jpg" alt="Picture of a BitBot XL">
     <div class="center-text">
         <p><small>Image of the BitBot XL. In the blog, BitBot refers to XL version.</small></p>
     </div>
 
-    <p>With both the micro:bit and BitBot, the number of outputs I could play around with increased significantly. Now what I was interested were the motors and the ultrasonic sensor.</p>
+    <p>With both the micro:bit and BitBot, the number of inputs and outputs I could play around with increased significantly. Now what I was interested were the motors and the ultrasonic sensor.</p>
 
-    <p>At first I played around with making the motors spin and detecting distances using the ultrasonic sensor. Once I was familar with it, I programmed the BitBot to drive in a straight line and turn when it detected something in front of it. Pretty neat, but if we wanted to control it?</p>
+    <p>At first, I played around with making the motors spin and detecting distances using the ultrasonic sensor. Once I was familiar with it, I programmed the BitBot to drive in a straight line and turn when it detected something in front of it. Pretty neat, but what if we wanted to control it?</p>
 
     <h2>Making use of Bluetooth LE</h2>
 
     <p>As previously mentioned, the mirco:bit has Bluetooth LE capabilities, which allows it to communicate with other micro:bits. Now this is huge as one could build a network of micro:bits for more complex use cases, such as remote controlling!</p>
 
-    <p>Now with the BitBot, controlling it directly using the buttons on micro:bit attached to it would be quite difficult, as you would have to move with the BitBot in sync, as well as <em>boring</em>. At that point you might as well as move the BitBot yourself...</p>
+    <p>Now with the BitBot, controlling it directly using the buttons on micro:bit attached to it would be quite difficult, as you would have to move with the BitBot in sync, as well as <em>boring</em>. At that point, you might as well as move the BitBot yourself...</p>
 
-    <p>This is where Bluetooth <small>(Bluetooth as in Bluetooth LE)</small> comes in. We can use another micro:bit that we will hold to communicate with the mirco:bit on the BitBot and tell it where to move. Well, specifically how it should move. As cool as a system where one could enter in coordinates for the BitBot would move to, 2 buttons are simply far too few inputs for the user experience to be even somewhat bearable.</p>
+    <p>This is where Bluetooth <small>(Bluetooth as in Bluetooth LE)</small> comes in. We can use another micro:bit that we will hold to communicate with the mirco:bit on the BitBot and tell it where to move. Well, specifically how it should move. As cool as a system where one could enter in coordinates for the BitBot would move to would be, 2 buttons are simply far too few inputs for the user experience to be even somewhat bearable.</p>
 
     <p>I'm pretty sure I lost the code <small>(:P)</small> but the first version of this remote control BitBot system used the left and right buttons as turning left and right and pushing both buttons at the same time as moving forward. The second version had the BitBot constantly move forward with the pushing of both buttons toggling its forward movement.</p>
 
@@ -67,10 +68,11 @@
 
     <h2>BitBot ultrasonic radar...?</h2>
 
-    <p>Yep. I wanted to make a radar system using the BitBot. And it could 100% facilitate one: it has a ultrasonic sensor that could measure distances as well as motors that can turn said sensor. Below is the system in action! I'm quite proud of it.</p>
+    <p>Yep. I wanted to make a radar system using the BitBot. And it could 100% facilitate one: it has an ultrasonic sensor that could measure distances, as well as motors that can turn said sensor. Below is the system in action! I'm quite proud of it.</p>
 
     <video controls loop>
-        <source src="/assets/bitbot-radar.webm" type="video/webm">
+        <source src="/assets/bitbot-radar.mp4" type="video/mp4">
+        Your browser does not support video.
     </video>
     <div class="center-text">
         <p><small>Yes, the screaming and cries are intentional.</small></p>
@@ -84,3 +86,4 @@
 </body>
 
 </html>
+
