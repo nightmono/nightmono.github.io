@@ -12,6 +12,8 @@
     --fg: #e5e5e5;
     --fg1: #888;
     --bg: #181818;
+    --bg2: #272727;
+    --bla: #000;
 }
 
 .grn {
@@ -95,7 +97,7 @@ h3 {
     font-size: 18px;
 }
 
-p,ul,ol,img,video {
+p,ul,ol,img,video,code {
     animation: slide-in-left .5s;
 }
 
@@ -138,6 +140,17 @@ ol {
 
 li::marker {
     color: var(--fg1);
+}
+
+code {
+    display: block;
+    background-color: var(--bg2);
+    max-width: 100%;
+    white-space: pre;
+    margin-right: 1ch;
+    padding: .5rem 1ch;
+    box-shadow: .5rem 1ch var(--bla);
+    overflow-x: auto;
 }
 
 .center-text {
