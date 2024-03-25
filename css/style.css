@@ -145,6 +145,7 @@ li::marker {
 
 code {
     display: block;
+    font-family: inherit;
     background-color: var(--bg2);
     max-width: 100%;
     white-space: pre;
