@@ -151,7 +151,7 @@ code {
     white-space: pre;
     margin: 0 1ch 1.5rem 0;
     padding: .5rem 1ch;
-    box-shadow: .5rem 1ch var(--bla);
+    box-shadow: 1ch .5rem var(--bla);
     overflow-x: auto;
 }
 
