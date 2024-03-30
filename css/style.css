@@ -163,7 +163,7 @@ code {
     color: var(--blu);
 }
 
-.grn::selection {
+.blu::selection {
     background-color: var(--blu);
 }
 
