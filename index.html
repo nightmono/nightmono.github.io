@@ -1,70 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="nightmono" />
-    <meta name="description" content="Hello! I'm a beginner Python programmer with an interest in software enginnering, full-stack, and Linux. I also enjoy a bit of scripting, game dev, and exploring random bits of tech I see every now and then. Always open to learn new stuff too! (Hit me up with a field/subject you're studying/working in if you want!)" />
-    <meta name="og:type" content="website"/>
-    <meta property="og:title" content="nightmono" />
-    <meta property="og:description" content="Hello! I'm a beginner Python programmer with an interest in software enginnering, full-stack, and Linux. I also enjoy a bit of scripting, game dev, and exploring random bits of tech I see every now and then. Always open to learn new stuff too! (Hit me up with a field/subject you're studying/working in if you want!)" />
     <title>nightmono</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script src="/js/append-3-random-projects.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+    <h1>nightmono</h1>
 
-    <header>
-        <h1>nightmono</h1>
-        <p>
-            <a href="/">$ cd</a> -
-            <a href="/projects">Projects/</a> -
-            <a href="/blog">Blog/</a>
-        </p>
-    </header>
+    <p>Hello and welcome to my website!</p>
 
-    <h2>cat <strong class="blu">/etc/motd</strong></h2>
-    <p>Website is currently under construction. <a href="/under-construction">Read more.</a></p>
+    <p>I'm mostly a Python and JS programmer but I'll poke some other languages here and there (not that I'm good at any of them). I code mostly random things that interest me and are within my capabilities. Stuff ranges from celluar automata to random CLI apps.</p>
 
-    <h2>whoami</h2>
-    <img src="/assets/yippee.webp" alt="YIPPEE cat">
-    <p>Hello! I'm a beginner Python programmer with an interest in software enginnering, full-stack, and Linux. I also enjoy a bit of scripting, game dev, and exploring random bits of tech I see every now and then. Always open to learn new stuff too! <small>(Hit me up with a field/subject you're studying/working in if you want!)</small></p>
-    <p>You can also check out my <a href="/blog">blogpost</a>, which is mainly about my projects.</p>
+    <p>Here are some projects I've worked on. <a href="https://github.com">GitHub</a>.</p>
 
-    <h2>Projects</h2>
-    <p>3 random <a href="/projects">projects</a>:</p>
-    <noscript><p><small>(Javascript is disabled.)</small></p></noscript>
-    <ol id="projects-list"></ol>
-    <p>As for the rest of my projects, you can find them on my <a href="https://github.com/nightmono/">GitHub</a>. <small>(Not all of these have a blog or documentation.)</small></p>
+    <blockquote>
+        <h2>WireWorld</h2>
 
-    <h2>Socials</h2>
-    <ul>
-        <li>GitHub (<a href="https://github.com/nightmono/">nightmono</a>)</li>
-        <li>Email (<a>bedrock@nightmono.com</a>) - don't blow up my mail plz</li>
-    </ul>
+        <p>A online simulation (that you can visit right now!) of the WireWorld celluar automaton.<br>This celluar automata is especially interesting because it's meant to simulate circuits and wires.</p>
 
-    <h2><strong class="blu">$ cd</strong>?</h2>
-    <p>It's a linux command reference;</p>
-    <ul>
-        <li><strong class="blu">$</strong> is what you type commands after</li>
-        <li><strong class="blu">cd</strong> is a command to change directory <small>(in this case, page)</small></li>
-        <li>and since <strong class="blu">cd</strong> has no arguments <small>(nothing after it)</small>, it defaults to the home directory <small>(this page)</small></li>
-    </ul>
-    <p>The pages, <strong class="blu">Projects</strong> and <strong class="blu">Blog</strong>, would be the argument to <strong class="blu">cd</strong>, so the command would be <strong class="blu">cd Projects</strong>, which changes the current directory <small>(page)</small> to <strong class="blu">Projects</strong>.</p>
-    <p>And now you know the basics of <strong class="blu">cd</strong>!</p>
+        <p><a href="https://nightmono.com/wireworld">View</a> / <a href="https://github/nightmono/wireworld">Source</a></p>
+    </blockquote>
 
-    <h2>Hover effect</h2>
-    <p>I might change it since it has some edge-case issues with the padding scaling and such.</p>
-    <p>Whilst it's groovy, it can groove a little <em>too much</em>. So if you have any alternative hover effects, feel free to submit them at <a>hover-effect@nightmono.com</a>.</p>
+    <br>
 
-    <h2>Credits</h2>
-    <ul>
-        <li><a>My cat</a> for the purrs<img src="/assets/purr.webp" alt="purr cat"></li>
-        <li><a>You</a> for visiting, thank you!</li>
-    </ul>
+    <blockquote>
+        <h2>Pomodoro Timer</h2>
+
+        <p>My very first JavaScript project, a pure HTML/CSS and JavaScript copy of a pomodoro timer app, <a href="https://pomofocus.io/">pomofocus.io</a>.<br>This project was what taught me the basics of HTML/CSS and JavaScript.</p>
+
+        <p><a href="https://nightmono.com/pomodoro-timer">View</a> / <a href="https://github/nightmono/pomodoro-timer">Source</a></p>
+    </blockquote>
+
+    <br>
+
+    <blockquote>
+        <h2>Shunting Yard Algorithm</h2>
+
+        <p>Infix notation to postfix notation parser. Pretty much essential in compliers.<br>Don't worry, I had no clue what infex and postfix notation was either.</p>
+
+        <p><a href="https://github.com/nightmono/shunting-yard-algorithm">Source</a></p>
+    </blockquote>
 
 </body>
 
