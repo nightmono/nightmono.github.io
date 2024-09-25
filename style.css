@@ -10,7 +10,9 @@ body {
     font-family: 'Roboto Slab', sans-serif;
 }
 
-h1,h2,h3 {
+h1,
+h2,
+h3 {
     line-height: 1;
 }
 
@@ -27,4 +29,21 @@ blockquote *:first-child {
 
 blockquote *:last-child {
     margin-bottom: 0;
+}
+
+/* Crude dark mode, to be improved */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #EEE;
+        background-color: #000;
+    }
+
+    blockquote {
+        background: rgba(255, 255, 255, 0.1);
+        border-left: 5px solid rgba(255, 255, 255, 0.1);
+    }
+
+    a {
+        color: #8080EE;
+    }
 }
